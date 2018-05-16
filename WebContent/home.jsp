@@ -26,6 +26,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 	crossorigin="anonymous"></script>
+
 </head>
 
 <header class="myMundo"> <img class="headerImg img-responsive"
@@ -56,19 +57,22 @@
 					class="caret"></span>
 			</a>
 				<ul class="dropdown-menu" role="menu">
-					<li><a href="#" data-abrir="Grupo">A</a></li>
+				
+					<li><a class="grupo" href="#" data-grupo="A">A</a></li>
 					<li class="divider"></li>
-					<li><a href="#" data-abrir="hola">B</a></li>
+					<li><a  class="grupo" href="#" data-grupo="B">B</a></li>
 					<li class="divider"></li>
-					<li><a href="#" data-abrir="hola">C</a></li>
+					<li><a  class="grupo" href="#" data-grupo="C">C</a></li>
 					<li class="divider"></li>
-					<li><a href="#" data-abrir="hola">D</a></li>
+					<li><a  class="grupo" href="#" data-grupo="D">D</a></li>
 					<li class="divider"></li>
-					<li><a href="#" data-abrir="hola">E</a></li>
+					<li><a  class="grupo" href="#" data-grupo="E">E</a></li>
 					<li class="divider"></li>
-					<li><a href="#" data-abrir="hola">F</a></li>
+					<li><a  class="grupo" href="#" data-grupo="F">F</a></li>
 					<li class="divider"></li>
-					<li><a href="#" data-abrir="hola">H</a></li>
+					<li><a  class="grupo" href="#" data-grupo="G">G</a></li>
+					<li class="divider"></li>
+					<li><a  class="grupo" href="#" data-grupo="H">H</a></li>
 
 				</ul></li>
 			<li><a href="#">Marcadores<span class="sr-only">(current)</span></a></li>
@@ -79,7 +83,7 @@
 
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="#">Mi cuenta</a></li>
-			<li><a href="#">Salir</a></li>
+			<li><a href="index.jsp">Salir</a></li>
 
 		</ul>
 	</div>
@@ -88,6 +92,13 @@
 <!-- /.container-fluid --> </nav>
 
 
+<div id="contenedor">
+
+</div>
+<div>
+<table id="hola"></table>
+
+</div>
 <footer class="footerHome">
 
 <div class="container">
@@ -112,27 +123,52 @@
 </div>
 
 </footer>
-<div class="container" id="contenedor">
-
-	<div class="row">
-		<div class=" col-md-12">
-
-			<section> </section>
-
-		</div>
-	</div>
 
 
-</div>
 <script type="text/javascript">
-    
-        $("li a").click(function(event){
-            event.preventDefault();
-            if($(this).data('abrir')!=null){
-                $("#contenedor").load($(this).data('abrir')+'.html');
-            }
-        });
-    
+
+
+		$(".grupo").click(
+				
+				function(event){
+				event.preventDefault();
+				$("#contenedor").load('grupos.jsp');
+				
+				var grupo= $(this).data('grupo');
+				
+				$.ajax({
+					
+					type:'GET',
+					data:{grupo:grupo},
+					url:'GruposController',
+					success: function(json){
+						 
+						var tr;
+					     for (var i = 0; i < json.length; i++) {
+					    	
+					    	 tr ='<tr>'+
+					            "<td>" + json[i].nombre + "</td>"+
+					            "<td>" + json[i].puntos + "</td>"+
+					            "<td>" + json[i].fase + "</td>";
+					            if( json[i].estado==true){
+					            	 tr +="<td>" + "Activo" + "</td></tr>";
+					            	
+					            }else{
+					            	 tr +="<td>" + "Eliminado" + "</td></tr>";
+					            }
+					           $('#tablaGrupo').append(tr);
+					            
+					       }
+					     
+					}
+					
+				});
+				
+				
+				
+				});
+        
+        
     </script>
 
 </body>

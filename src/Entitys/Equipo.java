@@ -17,7 +17,7 @@ public class Equipo implements Serializable {
 	@Column(name="id_equipo")
 	private int idEquipo;
 
-	private byte estado;
+	private Boolean estado;
 
 	private String fase;
 
@@ -38,11 +38,11 @@ public class Equipo implements Serializable {
 		this.idEquipo = idEquipo;
 	}
 
-	public byte getEstado() {
+	public Boolean getEstado() {
 		return this.estado;
 	}
 
-	public void setEstado(byte estado) {
+	public void setEstado(Boolean estado) {
 		this.estado = estado;
 	}
 
