@@ -1,4 +1,4 @@
-package Entitys;
+package entitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -24,15 +24,15 @@ public class Apuesta implements Serializable {
 	@JoinColumn(name="id_tipo")
 	private TipoApuesta tipoApuesta;
 
-	//bi-directional many-to-one association to Partido
-	@ManyToOne
-	@JoinColumn(name="id_partido")
-	private Partido partido;
-
 	//bi-directional many-to-one association to Usuario
 	@ManyToOne
 	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
+
+	//bi-directional many-to-one association to Partido
+	@ManyToOne
+	@JoinColumn(name="id_partido")
+	private Partido partido;
 
 	public Apuesta() {
 	}
@@ -61,20 +61,20 @@ public class Apuesta implements Serializable {
 		this.tipoApuesta = tipoApuesta;
 	}
 
-	public Partido getPartido() {
-		return this.partido;
-	}
-
-	public void setPartido(Partido partido) {
-		this.partido = partido;
-	}
-
 	public Usuario getUsuario() {
 		return this.usuario;
 	}
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+
+	public Partido getPartido() {
+		return this.partido;
+	}
+
+	public void setPartido(Partido partido) {
+		this.partido = partido;
 	}
 
 }

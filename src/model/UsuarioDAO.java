@@ -1,8 +1,8 @@
-package Model;
+package model;
 
 
-import Util.Conexion;
-import Entitys.Usuario;
+import entitys.Usuario;
+import util.Conexion;
 
 public class UsuarioDAO extends Conexion<Usuario> 
 implements IProcesosDB<Usuario>{

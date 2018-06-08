@@ -21,6 +21,7 @@
 	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
 	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="css/estilos.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -46,36 +47,17 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand" href="#" onClick="location.reload();">Home</a>
+		<a class="navbar-brand" href="#" onClick="location.reload();">Partidos</a>
 	</div>
 
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown" role="button" aria-expanded="false">Grupos<span
-					class="caret"></span>
-			</a>
-				<ul class="dropdown-menu" role="menu">
-				
-					<li><a class="grupo" href="#" data-grupo="A">A</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="B">B</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="C">C</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="D">D</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="E">E</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="F">F</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="G">G</a></li>
-					<li class="divider"></li>
-					<li><a  class="grupo" href="#" data-grupo="H">H</a></li>
-
-				</ul></li>
-			<li><a href="#">Marcadores<span class="sr-only">(current)</span></a></li>
+			
+			<li><a href="#" data-seleccion="grupos">Grupos<span
+					class="sr-only">(current)</span></a></li>
+			<li><a href="#" >Marcadores<span class="sr-only">(current)</span></a></li>
+			
 			<li><a href="#">Apostar</a></li>
 			<li><a href="#">Mis puntos</a></li>
 
@@ -92,11 +74,9 @@
 <!-- /.container-fluid --> </nav>
 
 
-<div id="contenedor">
-
-</div>
+<div id="contenedor"></div>
 <div>
-<table id="hola"></table>
+	<table id="hola"></table>
 
 </div>
 <footer class="footerHome">
@@ -128,47 +108,20 @@
 <script type="text/javascript">
 
 
-		$(".grupo").click(
-				
-				function(event){
-				event.preventDefault();
-				$("#contenedor").load('grupos.jsp');
-				
-				var grupo= $(this).data('grupo');
-				
-				$.ajax({
-					
-					type:'GET',
-					data:{grupo:grupo},
-					url:'GruposController',
-					success: function(json){
-						 
-						var tr;
-					     for (var i = 0; i < json.length; i++) {
-					    	
-					    	 tr ='<tr>'+
-					            "<td>" + json[i].nombre + "</td>"+
-					            "<td>" + json[i].puntos + "</td>"+
-					            "<td>" + json[i].fase + "</td>";
-					            if( json[i].estado==true){
-					            	 tr +="<td>" + "Activo" + "</td></tr>";
-					            	
-					            }else{
-					            	 tr +="<td>" + "Eliminado" + "</td></tr>";
-					            }
-					           $('#tablaGrupo').append(tr);
-					            
-					       }
-					     
-					}
-					
-				});
-				
-				
-				
-				});
-        
-        
+	$(document).ready(function(event){ 
+	$("#contenedor").load('listarPartidos.jsp');
+
+	})
+
+	$("li a").click(function(event){
+	event.preventDefault();
+	if($(this).data('seleccion')!=null){
+	$("#contenedor").load($(this).data('seleccion')+'.jsp');
+	}
+	});
+
+	
+	 
     </script>
 
 </body>

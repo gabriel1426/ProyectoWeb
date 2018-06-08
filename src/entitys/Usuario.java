@@ -1,4 +1,4 @@
-package Entitys;
+package entitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -34,23 +34,17 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 	
+	
 
-	public Usuario(String correo, int cedula, boolean estadoPago, String nombre, String password, String telefono,List<Apuesta> apuestas) {
-		
+	public Usuario(String correo, int cedula, boolean  estadoPago, String nombre, String password, String telefono) {
+		super();
 		this.correo = correo;
 		this.cedula = cedula;
 		this.estadoPago = estadoPago;
 		this.nombre = nombre;
 		this.password = password;
 		this.telefono = telefono;
-		this.apuestas = apuestas;
-	}
-
-	
-	@Override
-	public String toString() {
-		return "Usuario [correo=" + correo + ", cedula=" + cedula + ", estadoPago=" + estadoPago + ", nombre=" + nombre
-				+ ", password=" + password + ", telefono=" + telefono + ", apuestas=" + apuestas + "]";
+		
 	}
 
 
@@ -71,11 +65,11 @@ public class Usuario implements Serializable {
 		this.cedula = cedula;
 	}
 
-	public boolean getEstadoPago() {
+	public boolean  getEstadoPago() {
 		return this.estadoPago;
 	}
 
-	public void setEstadoPago(boolean estadoPago) {
+	public void setEstadoPago(boolean  estadoPago) {
 		this.estadoPago = estadoPago;
 	}
 

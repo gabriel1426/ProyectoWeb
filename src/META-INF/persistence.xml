@@ -7,11 +7,11 @@
 	<persistence-unit name="aplicacion"
 		transaction-type="RESOURCE_LOCAL">
 		<mapping-file>META-INF/eclipselink-orm.xml</mapping-file>
-		<class>Entitys.Apuesta</class>
-		<class>Entitys.Equipo</class>
-		<class>Entitys.Partido</class>
-		<class>Entitys.TipoApuesta</class>
-		<class>Entitys.Usuario</class>
+		<class>entitys.Apuesta</class>
+		<class>entitys.Equipo</class>
+		<class>entitys.Partido</class>
+		<class>entitys.TipoApuesta</class>
+		<class>entitys.Usuario</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

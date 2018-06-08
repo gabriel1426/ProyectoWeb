@@ -1,7 +1,7 @@
-package Model;
+package model;
 
-import Entitys.Equipo;
-import Util.Conexion;
+import entitys.Equipo;
+import util.Conexion;
 
 public class EquipoDao extends Conexion<Equipo> 
 implements IProcesosDB<Equipo>{

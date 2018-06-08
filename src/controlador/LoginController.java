@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.ProcesosBD;
-import Util.Procesos;
+import model.ProcesosBD;
+import util.Procesos;
 
 
 

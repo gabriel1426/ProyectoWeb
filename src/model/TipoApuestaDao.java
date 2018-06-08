@@ -1,7 +1,7 @@
-package Model;
+package model;
 
-import Util.Conexion;
-import Entitys.TipoApuesta;
+import entitys.TipoApuesta;
+import util.Conexion;
 
 public class TipoApuestaDao extends Conexion<TipoApuesta>
 implements IProcesosDB<TipoApuesta>{
