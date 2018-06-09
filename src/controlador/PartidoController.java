@@ -53,7 +53,7 @@ public class PartidoController extends HttpServlet {
 			System.out.println( eLocal+"---"+eVicitante);
 
 			p.registrarPartido(eLocal, eVicitante, estado);
-			System.out.println(eLocal+"--"+eVicitante+"--"+estado+"Controler");
+			
 			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
 			//rd.forward(request, response);
@@ -72,8 +72,9 @@ public class PartidoController extends HttpServlet {
 
 			p.actualizarPartido(id, eLocal, eVicitante, glocal, gvicitante,estado);
 
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
+			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
+			//rd.forward(request, response);
 
 		} else if (select == 2) {
 
@@ -83,8 +84,9 @@ public class PartidoController extends HttpServlet {
 			int id = Integer.parseInt(request.getParameter("idPartido"));
 			p.EliminarPartido(id);
 
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
+			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
+			//rd.forward(request, response);
 
 		}
 	

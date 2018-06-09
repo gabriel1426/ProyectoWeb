@@ -47,7 +47,7 @@ public class RegistroController extends HttpServlet {
 		String telefono=request.getParameter("telefono");
 		int cedula = Integer.parseInt(request.getParameter("cedula"));
 		String password= request.getParameter("password");
-		boolean estadoPago=false;
+		String estadoPago="faltante";
 		
 	   
 	    p.registrarUsuario(correo, cedula, estadoPago, nombre, password, telefono);

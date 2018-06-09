@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
     <link rel="stylesheet" href="css/estilos.css">
+   
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body class="mybody-login">
@@ -54,10 +55,15 @@
                     <input type="text" name="password" id="password" class="form-control" placeholder="Contraseña">
                     </div>
                 </div>
+                <div style="display:none;">
+                <div id="content">
+   				
+				</div>
+                </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-md-2" for="nombre">Recibo de pago: </label>
                     <div class="col-md-9 col-sm-12">
-                    <button class="btn btn-primary">Descargar</button>
+                    <a class="btn btn-primary" id="cmd">Descargar</a>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
@@ -93,5 +99,22 @@
 
 </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+    <script type="text/javascript">
+    var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+
+    $('#cmd').click(function () {   
+        doc.fromHTML($('#content').html(), 15, 15, {
+            'width': 170,
+                'elementHandlers': specialElementHandlers
+        });
+        doc.save('sample-file.pdf');
+    });
+    </script>
 </body>
 </html>

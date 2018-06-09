@@ -11,7 +11,8 @@ import entitys.Usuario;
 import model.EquipoDao;
 import model.IProcesosDB;
 import model.PartidoDao;
-import model.UsuarioDAO;
+import model.UsuarioDao;
+import model.UsuariosDao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Procesos {
 	
 	
 	public boolean login(String correo,String password){
-		IProcesosDB<Usuario> usDao= new UsuarioDAO();
+		IProcesosDB<Usuario> usDao= new UsuarioDao();
 		Usuario us= usDao.find(correo);
 		
 		if(us == null){
@@ -38,11 +39,24 @@ public class Procesos {
 	}
 
 	
-	public void registrarUsuario(String correo, int cedula, boolean estadoPago, String nombre, String password,
+	public void registrarUsuario(String correo, int cedula, String estadoPago, String nombre, String password,
 			String telefono) {
 		Usuario usuario=new Usuario(correo, cedula, estadoPago, nombre, password, telefono);
-		IProcesosDB<Usuario> usDao= new UsuarioDAO();
+		IProcesosDB<Usuario> usDao= new UsuarioDao();
 		usDao.insert(usuario);
+	}
+	
+	public List<Usuario> listarUsuarios(){
+		
+		IProcesosDB<Usuario> us= new UsuariosDao();
+		List<Usuario> u = us.list();
+		
+		//List<Equipo> aux= new ArrayList<Equipo>();
+		//Gson gson = new Gson();
+		//String json1 = gson.toJson(aux);
+		
+		return u;
+			
 	}
 	
 	public List<Equipo> ListarGrupos(){
@@ -57,24 +71,13 @@ public class Procesos {
 		return e;
 			
 	}
-	public List<Partido> listarPartidos(){
-		
-		IProcesosDB<Partido> partidoDao= new PartidoDao();
-		List<Partido> e = partidoDao.list();
-		
-		for(Partido p: e){
-			System.out.println(p.getGEquipo1());
-		}
-		
-		return e;
-			
-	}
+	
 
 
 	public void registrarPartido(int eLocal, int eVicitante, String estado) {
 	
 		
-		System.out.println(eLocal+"--"+eVicitante+"--"+estado);
+		
 		
 		IProcesosDB<Equipo> equipoDao= new EquipoDao();
 		Equipo e1 = equipoDao.find(eLocal);
@@ -100,11 +103,24 @@ public class Procesos {
 
 
 	public void EliminarPartido(int id) {
-		System.out.println(id+"=-=-=-=-=-");
+		
 		IProcesosDB<Partido> parDao= new PartidoDao();
 		Partido p=parDao.find(id);
 		parDao.delete(p);
 		
+	}
+	
+	public List<Partido> listarPartidos(){
+		
+		IProcesosDB<Partido> partidoDao= new PartidoDao();
+		List<Partido> e = partidoDao.list();
+		
+		for(Partido p: e){
+			
+		}
+		
+		return e;
+			
 	}
 }
 		

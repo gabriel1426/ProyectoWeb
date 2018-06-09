@@ -19,7 +19,7 @@ public class Usuario implements Serializable {
 
 	private int cedula;
 
-	private boolean estadoPago;
+	private String estadoPago;
 
 	private String nombre;
 
@@ -36,7 +36,7 @@ public class Usuario implements Serializable {
 	
 	
 
-	public Usuario(String correo, int cedula, boolean  estadoPago, String nombre, String password, String telefono) {
+	public Usuario(String correo, int cedula, String  estadoPago, String nombre, String password, String telefono) {
 		super();
 		this.correo = correo;
 		this.cedula = cedula;
@@ -65,11 +65,11 @@ public class Usuario implements Serializable {
 		this.cedula = cedula;
 	}
 
-	public boolean  getEstadoPago() {
+	public String  getEstadoPago() {
 		return this.estadoPago;
 	}
 
-	public void setEstadoPago(boolean  estadoPago) {
+	public void setEstadoPago(String  estadoPago) {
 		this.estadoPago = estadoPago;
 	}
 

@@ -5,12 +5,7 @@
 		<h4>Listado de Partidos</h4>
 	</center>
 
-   <div class="container col text-right">
-	<!-- Trigger the modal with a button -->
-	<button style="text-align:center" type="button" class="btn btn-info" data-toggle="modal"
-		data-target="#agregarPartido"> Agregar <span class="fas fa-edit"></span>
-	</button>
-	</div>
+   
 	<!-- Modal -->
 	<div id="agregarPartido" class="modal fade" role="dialog">
 		<div class="modal-dialog">
@@ -74,16 +69,33 @@
 		</div>
 	</div>
 	
-	<br>
-     <div class="container"> 
-	<table class="mytabla table">
+	
+	<div class="container">
+    <div class="form-group col-md-6 linea">
+    
+    <label class="control-label col-md-2" for="filtro">Estado: </label>
+    <div class="col-md-9 col-sm-12">
+    <select name="estado"  id="myInput"  onchange="myFunction()" class="linea">
+	<option value="0"  >-----</option>
+	<option value="Activo"  >Activo</option>
+	<option value="En curso"  >En curso</option>
+	<option value="Finalizado" >Finalizado</option>
+	</select>
+	 </div>
+	</div><div class="form-group col-md-6 text-right">
+	<button style="text-align:center" type="button" class="btn btn-info text-right" data-toggle="modal"
+		data-target="#agregarPartido"> Agregar <span class="fas fa-edit"></span>
+	</button>
+	</div>
+	</div>
+	<div class="container" > 
+	<table class="mytabla table" id="myTable">
 
-		<tr>
+		<tr class="header">
 
 			<th>Equipo 1</th>
-			<th>Goles Equipo 1</th>
+			<th colspan="2">Marcador</th>
 			<th>Equipo 2</th>
-			<th>Goles Equipo 2</th>
 			<th>Estado</th>
 			<th>Modificar</th>
 			<th>Eliminar</th>
@@ -95,10 +107,11 @@
 			<tr>
 				<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 				src="<c:out value="${item.equipo1.bandera}"/>" alt="" /><c:out value="${item.equipo1.nombre}" /></td>
-				<td style="vertical-align:middle;" ><c:out value="${item.getGEquipo1()}" /></td>
+				<td style="vertical-align:middle;" ><center><c:out value="${item.getGEquipo1()}" /><center></td>
+				<td style="vertical-align:middle;" ><center><c:out value="${item.getGEquipo2()}" /><center></td>
 				<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 				src="<c:out value="${item.equipo2.bandera}"/>" alt="" /><c:out value="${item.equipo2.nombre}" /></td>
-				<td style="vertical-align:middle;" ><c:out value="${item.getGEquipo2()}" /></td>
+				
 				<td style="vertical-align:middle;" ><c:out value="${item.estado}" /></td>
 
 
