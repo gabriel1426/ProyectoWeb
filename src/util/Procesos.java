@@ -122,6 +122,26 @@ public class Procesos {
 		return e;
 			
 	}
+
+
+	public void guardarRecibo(String recibo) {
+		// TODO Auto-generated method stub
+		IProcesosDB<Usuario> us= new UsuariosDao();
+		Usuario u = us.find("andres@andres.com");
+		
+		u.setRecibo(recibo);
+		us.update(u);
+		
+	}
+
+
+	public Usuario buscarUsuario(String correo) {
+		
+		IProcesosDB<Usuario> us= new UsuariosDao();
+		Usuario u = us.find(correo);
+		return u;
+	}
+	
 }
 		
 

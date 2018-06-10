@@ -23,7 +23,7 @@
             </div>
            <div class="row">
             <form  action="RegistroController" method="post" class="form-horizontal myfom-registro">
-
+				<input type="hidden" name="seleccion" value="0">
                 <div class="form-group col-md-12">
 
                     <label class="control-label col-md-2" for="nombre">Nombre: </label>
@@ -66,6 +66,7 @@
                     <a class="btn btn-primary" id="cmd">Descargar</a>
                     </div>
                 </div>
+                
                 <div class="form-group col-md-12">
                     <div class="col-md-9 col-md-offset-5 col-sm-12 col-sm-offset-4 col-xs-offset-3">
                     <button type="submit" value="Registrar" class="btn btn-success">Registrar</button>

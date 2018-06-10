@@ -74,8 +74,8 @@
 					<center><button class="btn btn-success">Ingresar</button></center>
 				</div>
 				<div class="form-group  col-md-12">
-					<strong><a href="RegistroUsuario.jsp">Registrarme</a></strong> <strong><a
-						href="">Olvede mi contraseña</a></strong>
+					<strong><a href="registro.jsp">Registrarme</a></strong> <strong><a
+						href="RegistroUsuario.jsp">Olvede mi contraseña</a></strong>
 				</div>
 
 			</form>

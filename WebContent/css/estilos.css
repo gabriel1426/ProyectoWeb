@@ -86,6 +86,13 @@ footer{
     max-height: 50px;
     display: inline;
 }
+.img-recibo{
+	margin: 5px;
+	border: 3px;
+    max-width: 350px;
+    max-height: 500px;
+    display: inline;
+}
 .footerHome{
     background-image: url(http://www.futbolfactory.es/theme/images/mundial/header-mundial-rusia-2018.png);
     width: 100%;

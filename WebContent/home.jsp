@@ -57,6 +57,7 @@
 			<li><a href="#" data-seleccion="grupos">Grupos<span
 					class="sr-only">(current)</span></a></li>
 			<li><a href="#" data-seleccion="consultarUsuarios">Usuarios<span class="sr-only">(current)</span></a></li>
+			<li><a href="#" data-seleccion="usuarios">Usuarios 2</a></li>
 			
 			<li><a href="#">Apostar</a></li>
 			<li><a href="#">Mis puntos</a></li>
@@ -64,7 +65,7 @@
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Mi cuenta</a></li>
+			<li><a href="index.jsp">Mi cuenta</a></li>
 			<li><a href="index.jsp">Salir</a></li>
 
 		</ul>

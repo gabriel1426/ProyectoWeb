@@ -60,21 +60,9 @@
 									<p>Por favor chequea el combrobante de pago</p>
 
 									<form action="PartidoController" method="post">
-
-										<input type="hidden" name="metodo" value="1"> 
 										
-										<div class="form-group col-md-12">
-											<br>
-											<center>
-												<button class="btn btn-success">Aprobar</button>
-											</center>
-										</div>
-										<div class="form-group col-md-12">
-											<br>
-											<center>
-												<button class="btn btn-success">Rechazar</button>
-											</center>
-										</div>
+										<label class="control-label col-md-2" for="nombre">${item.recibo} </label>
+										<center><img src="${item.recibo}" class="img-responsive img-recibo"/></center>
 
 									</form>
 								</div>

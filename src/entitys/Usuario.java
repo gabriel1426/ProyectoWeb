@@ -26,6 +26,10 @@ public class Usuario implements Serializable {
 	private String password;
 
 	private String telefono;
+	
+	private String recibo;
+
+	
 
 	//bi-directional many-to-one association to Apuesta
 	@OneToMany(mappedBy="usuario")
@@ -103,6 +107,13 @@ public class Usuario implements Serializable {
 
 	public void setApuestas(List<Apuesta> apuestas) {
 		this.apuestas = apuestas;
+	}
+	public String getRecibo() {
+		return recibo;
+	}
+
+	public void setRecibo(String recibo) {
+		this.recibo = recibo;
 	}
 
 	public Apuesta addApuesta(Apuesta apuesta) {

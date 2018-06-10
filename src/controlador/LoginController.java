@@ -9,7 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import entitys.Usuario;
 import model.ProcesosBD;
 import util.Procesos;
 
@@ -58,6 +60,15 @@ public class LoginController extends HttpServlet {
 		
 		if (login==true){
 	
+			HttpSession misession= request.getSession(true);
+			Usuario miUsuario= p.buscarUsuario(correo);
+			misession.setAttribute("correo",miUsuario.getCorreo());
+			misession.setAttribute("nombre",miUsuario.getNombre());
+			misession.setAttribute("cedula",miUsuario.getCedula());
+			misession.setAttribute("telefono",miUsuario.getTelefono());
+			misession.setAttribute("contraseña",miUsuario.getPassword());
+			misession.setAttribute("estado",miUsuario.getEstadoPago());
+			
 		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 		rd.forward(request, response);
 		} else{
