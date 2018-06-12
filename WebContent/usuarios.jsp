@@ -1,74 +1,98 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:useBean id="jpro" class="util.Procesos" scope="request"></jsp:useBean>
-<div>
+	
+<br>
+<div class="container">
+<div class="col-lg-4 col-md46 col-sm-12 col-xs-12">
+	<h3>Mis Puntos</h3>
+</div>
 
 
-	<div class="container">
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<center>
-					<h4>Datos de usuario</h4>
-				</center>
-			</div>
-			<div class="panel-body">
+<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
-				<form class="form-horizontal">
 
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="email">Email:</label>
-					<div class="col-sm-10">
-						<p class="form-control-static">someone@example.com</p>
-					</div>
-				</div>
-				<div class="form-group col-md-12 ">
-					<label class="control-label col-md-6"> Nombre </label>
-					<div class="col-sm-6">
-						<label class="control-label col-md-6"> <% out.print(session.getAttribute("usuario")); %>
-						</label>
-					</div>
-				</div>
-				<div class="form-group col-md-12 ">
-					<label class="control-label col-md-6" for="nombre">
-						Telefono </label>
-					<%
-						out.print(session.getAttribute("telefono"));
-					%>
-				</div>
-				<div class="form-group col-md-12 ">
-					<label class="control-label col-md-6" for="nombre"> Cedula
-					</label>
-					<%
-						out.print(session.getAttribute("cedula"));
-					%>
-				</div>
-				<div class="form-group col-md-12 ">
-					<label class="control-label col-md-6" for="nombre"> Correo
-					</label>
-					<%
-						out.print(session.getAttribute("correo"));
-					%>
-				</div>
-				<div class="form-group col-md-12 ">
-					<label class="control-label col-md-6" for="nombre"> Estado
-					</label>
-					<%
-						out.print(session.getAttribute("estado"));
-					%>
-				</div>
-				<form class="form-horizontal myfom-registro "
-					" action="RegistroController" enctype="MULTIPART/FORM-DATA"
-					method="post">
-					<input type="hidden" name="seleccion" value="1">
-					<div class="form-group col-md-3 col-md-offset-3">
-						<input class="form-control" type="file" name="file" />
-					</div>
-					<div class="form-group col-md-3 ">
+	<table class="mytabla table" id="myTable">
+	
+			<tr>
+			<th colspan="2"><center>Mis Datos</center></th>
+			</tr>
+			
+			<tr>
+			<td>
+			 <label class="control-label col-md-2" for="nombre">Nombre: </label>
+			</td>
+			<td>
+			<input type="text" name="nombre" id="nombre" class="form-control" value="${sessionScope.nombre}" disabled>
+			</td>
+			</tr>
+			
+			<tr>
+			<td>
+			  <label class="control-label col-md-2" for="nombre">Email:</label>
+			</td>
+			<td>
+			<input type="email" id="email" name="correo" class="form-control" value="${sessionScope.correo}" disabled>
+			</td>
+			</tr>
+			
+			<tr>
+			<td>
+			 <label class="control-label col-md-2 " for="nombre">Telefono: </label>
+			</td>
+			<td>
+			<input type="number" name="telefono" id="telefono" class="form-control" value="${sessionScope.telefono}" disabled>
+			</td>
+			</tr>
+			
+			<tr>
+			<td>
+			  <label class="control-label col-md-2" for="nombre">CC: </label>
+			</td>
+			<td>
+			<input type="number" name="cedula" id="cedula" class="form-control" value="${sessionScope.cedula}" disabled>
+			</td>
+			</tr>
+			
+			<tr>
+			<td>
+			  <label class="control-label col-md-2" for="contraseña">Contraseña: </label>
+			</td>
+			<td>
+			<input type="text" name="password" id="password" class="form-control" value="${sessionScope.contraseña}"  disabled>
+			</td>
+			</tr>
+			
+			<tr>
+			<td>
+			  <label class="control-label col-md-2" for="contraseña">Estabo: </label>
+			</td>
+			<td>
+			<input type="text" name="password" id="password" class="form-control" value="${sessionScope.estado}" disabled>
+			
+			</td>
+			</tr>
+			
+			<c:if test="${sessionScope.estado.equals('faltante')}">
+			<tr>
+			<td>
+			  <label class="control-label col-md-2" for="contraseña">Recibo: </label>
+			</td>
+			<td>
+			 <form class="form-horizontal myfom-registro" action="ReciboPagoController" enctype="MULTIPART/FORM-DATA" method="post">
+					
+					
+					<div class="form-group ">
+						
+						<input class="form-control" type="file" name="file" /><br>
 						<input class="form-control" type="submit" value="Upload" />
 					</div>
-				</form>
-				</form>
+					
+			</form>
+			</td>
+			</tr>
+			</c:if>
+			 
+			</table>
 			</div>
 		</div>
-	</div>
-</div>

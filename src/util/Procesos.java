@@ -14,6 +14,7 @@ import model.PartidoDao;
 import model.UsuarioDao;
 import model.UsuariosDao;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,13 @@ public class Procesos {
 			
 	}
 	
+	public Usuario buscarUsuario(String correo) {
+		
+		IProcesosDB<Usuario> us= new UsuariosDao();
+		Usuario u = us.find(correo);
+		return u;
+	}
+	
 	public List<Equipo> ListarGrupos(){
 		
 		IProcesosDB<Equipo> equipoDao= new EquipoDao();
@@ -74,7 +82,7 @@ public class Procesos {
 	
 
 
-	public void registrarPartido(int eLocal, int eVicitante, String estado) {
+	public void registrarPartido(int eLocal, int eVicitante, String estado,String fase, Timestamp fecha) {
 	
 		
 		
@@ -82,7 +90,7 @@ public class Procesos {
 		IProcesosDB<Equipo> equipoDao= new EquipoDao();
 		Equipo e1 = equipoDao.find(eLocal);
 		Equipo e2 = equipoDao.find(eVicitante);
-		Partido p = new Partido(estado, 0, 0, e1, e2);
+		Partido p = new Partido(estado, 0, 0, e1, e2,fase,fecha);
 		IProcesosDB<Partido> parDao= new PartidoDao();
 		parDao.insert(p);
 		
@@ -124,23 +132,41 @@ public class Procesos {
 	}
 
 
-	public void guardarRecibo(String recibo) {
+	public void guardarRecibo(String recibo,String correo) {
 		// TODO Auto-generated method stub
 		IProcesosDB<Usuario> us= new UsuariosDao();
-		Usuario u = us.find("andres@andres.com");
-		
+		Usuario u = us.find(correo);
 		u.setRecibo(recibo);
+		u.setEstadoPago("revision");
+		us.update(u);
+		
+	}
+	public void aprobarRecibo(String correo) {
+		
+		IProcesosDB<Usuario> us= new UsuariosDao();
+		Usuario u = us.find(correo);
+		u.setEstadoPago("aprobado");
 		us.update(u);
 		
 	}
 
 
-	public Usuario buscarUsuario(String correo) {
+	public void rechazarRecibo(String correo) {
 		
 		IProcesosDB<Usuario> us= new UsuariosDao();
+		
 		Usuario u = us.find(correo);
-		return u;
+		u.setRecibo("");
+		u.setEstadoPago("faltante");
+		us.update(u);
+		
 	}
+
+
+	
+
+
+	
 	
 }
 		

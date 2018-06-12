@@ -1,7 +1,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:useBean id="jPro" class="util.Procesos" scope="request"></jsp:useBean>
-
+<br>
 <div class="w3-container"> 
 
 <div class="w3-bar w3-black">
@@ -18,10 +18,7 @@
 </div>
 
 <div id="A" class="w3-container w3-display-container city">
-  <span onclick="this.parentElement.style.display='none'"
-  class="w3-button w3-large w3-display-topright">&times;</span>
-  	
-		
+  
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
@@ -323,15 +320,6 @@
 </div>
 </div>
 
+<script type="text/javascript" src="js/filtrar.js"></script>
 
-<script>
-function openCity(cityName) {
-    var i;
-    var x = document.getElementsByClassName("city");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    document.getElementById(cityName).style.display = "block";  
-}
-</script>
 

@@ -48,7 +48,7 @@ public class RegistroController extends HttpServlet {
 		int select = Integer.parseInt(request.getParameter("seleccion"));
 		// <input type="hidden" name="select" value="registro">
 		
-
+		
 		if (select == 0) {
 		Procesos p = new Procesos();
 		
@@ -59,46 +59,17 @@ public class RegistroController extends HttpServlet {
 		String password= request.getParameter("password");
 		String estadoPago="faltante";
 		
+	   try {
+		   p.registrarUsuario(correo, cedula, estadoPago, nombre, password, telefono);
+		   response.sendRedirect("http://localhost:8080/ProyectoWeb/index.jsp");
+	   } catch (Exception e) {
+		   request.setAttribute("entrar", "falso");
+		   System.out.println("entre aqui");
+		   RequestDispatcher rd = request.getRequestDispatcher("RegistroUsuario.jsp");
+		   rd.forward(request, response);
+	   }
 	   
-	    p.registrarUsuario(correo, cedula, estadoPago, nombre, password, telefono);
-
-	    response.sendRedirect("http://localhost:8080/ProyectoWeb/index.jsp");
 		}else {
-			Procesos p = new Procesos();
-			/*FileItemFactory es una interfaz para crear FileItem*/
-	        FileItemFactory file_factory = new DiskFileItemFactory();
-	 
-	        /*ServletFileUpload esta clase convierte los input file a FileItem*/
-	        ServletFileUpload servlet_up = new ServletFileUpload(file_factory);
-	        /*sacando los FileItem del ServletFileUpload en una lista */
-	        List items = null;
-			try {
-				items = servlet_up.parseRequest(request);
-			} catch (FileUploadException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	 
-	        for(int i=0;i<items.size();i++){
-	            /*FileItem representa un archivo en memoria que puede ser pasado al disco duro*/
-	            FileItem item = (FileItem) items.get(i);
-	            /*item.isFormField() false=input file; true=text field*/
-	            if (! item.isFormField()){
-	                /*cual sera la ruta al archivo en el servidor*/
-	                File archivo_server = new File("C:/Users/Gabriel Contreras/workspace/ProyectoWeb/WebContent/recibosDePago/"+item.getName());
-	                String recibo="C:/Users/Gabriel Contreras/workspace/ProyectoWeb/WebContent/recibosDePago/"+item.getName();
-	                p.guardarRecibo(recibo);
-	                /*y lo escribimos en el servido*/
-	                try {
-						item.write(archivo_server);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-	               
-		}
-	}
-	        response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
 		}
 }
 }

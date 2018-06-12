@@ -1,6 +1,9 @@
 package entitys;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -41,22 +44,31 @@ public class Partido implements Serializable {
 	@JoinColumn(name="id_equipo2")
 	private Equipo equipo2;
 
+	private String fase;
+	
+	private Timestamp fecha;
+	
+	
+
+
 	public Partido() {
 	}
 
-	public Partido(String estado, int gEquipo1, int gEquipo2, Equipo equipo1, Equipo equipo2) {
+	public Partido(String estado, int gEquipo1, int gEquipo2, Equipo equipo1, Equipo equipo2,String fase,Timestamp fecha) {
 		super();
 		this.estado = estado;
 		this.gEquipo1 = gEquipo1;
 		this.gEquipo2 = gEquipo2;
 		this.equipo1 = equipo1;
 		this.equipo2 = equipo2;
+		this.fase=fase;
+		this.fecha=fecha;
 	}
 
 	@Override
 	public String toString() {
 		return "Partido [idPartido=" + idPartido + ", estado=" + estado + ", gEquipo1=" + gEquipo1 + ", gEquipo2="
-				+ gEquipo2 + ", apuestas=" + apuestas + ", equipo1=" + equipo1 + ", equipo2=" + equipo2 + "]";
+				+ gEquipo2 + ", apuestas=" + apuestas + ", equipo1=" + equipo1 + ", equipo2=" + equipo2 + "fase=" + fase + "fecha=" + fecha +"]";
 	}
 
 
@@ -129,6 +141,21 @@ public class Partido implements Serializable {
 
 	public void setEquipo2(Equipo equipo2) {
 		this.equipo2 = equipo2;
+	}
+	public String getFase() {
+		return fase;
+	}
+
+	public void setFase(String fase) {
+		this.fase = fase;
+	}
+
+	public Timestamp getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(Timestamp fecha) {
+		this.fecha = fecha;
 	}
 
 }

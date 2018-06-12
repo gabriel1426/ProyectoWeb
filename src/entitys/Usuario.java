@@ -28,8 +28,34 @@ public class Usuario implements Serializable {
 	private String telefono;
 	
 	private String recibo;
+	
+	private int puntos;
+	
+	private double ganancia;
 
 	
+
+	public int getPuntos() {
+		return puntos;
+	}
+
+
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+
+
+	public double getGanancia() {
+		return ganancia;
+	}
+
+
+
+	public void setGanancia(double ganancia) {
+		this.ganancia = ganancia;
+	}
 
 	//bi-directional many-to-one association to Apuesta
 	@OneToMany(mappedBy="usuario")

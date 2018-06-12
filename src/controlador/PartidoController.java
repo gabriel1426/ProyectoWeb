@@ -1,6 +1,8 @@
 package controlador;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,9 +52,11 @@ public class PartidoController extends HttpServlet {
 			int eLocal = Integer.parseInt(request.getParameter("local"));
 			int eVicitante = Integer.parseInt(request.getParameter("vicitante"));
 			String estado = request.getParameter("estado");
-			System.out.println( eLocal+"---"+eVicitante);
+			String fase = request.getParameter("fase");
+			java.util.Date date = new java.util.Date();
+			Timestamp timestamp = new Timestamp(date.getTime());
 
-			p.registrarPartido(eLocal, eVicitante, estado);
+			p.registrarPartido(eLocal, eVicitante, estado,fase,timestamp);
 			
 			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
 			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");

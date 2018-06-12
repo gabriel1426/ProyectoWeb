@@ -28,31 +28,31 @@
 
                     <label class="control-label col-md-2" for="nombre">Nombre: </label>
                     <div class="col-md-9 col-sm-12">
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre" required>
                     </div>
                 </div>
                 <div class="form-group col-md-12 ">
                     <label class="control-label col-md-2" for="nombre">E-mail: </label>
                     <div class="col-md-9 col-sm-12">
-                    <input type="email" id="email" name="correo" class="form-control" placeholder="example@example.com">
+                    <input type="email" id="email" name="correo" class="form-control" placeholder="example@example.com" required>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-md-2 " for="nombre">Telefono: </label>
                     <div class="col-md-9 col-sm-12">
-                    <input type="number" name="telefono" id="telefono" class="form-control" placeholder="Telefono">
+                    <input type="number" name="telefono" id="telefono" class="form-control" placeholder="Telefono" required>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-md-2" for="nombre">CC: </label>
                     <div class="col-md-9 col-sm-12">
-                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="CC">
+                    <input type="number" name="cedula" id="cedula" class="form-control" placeholder="CC" required>
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-md-2" for="contraseña">Contraseña: </label>
                     <div class="col-md-9 col-sm-12">
-                    <input type="text" name="password" id="password" class="form-control" placeholder="Contraseña">
+                    <input type="text" name="password" id="password" class="form-control" placeholder="Contraseña" required>
                     </div>
                 </div>
                 <div style="display:none;">
@@ -61,9 +61,9 @@
 				</div>
                 </div>
                 <div class="form-group col-md-12">
-                    <label class="control-label col-md-2" for="nombre">Recibo de pago: </label>
+                    <label class="control-label col-md-2" for="nombre">Instrucciones de pago: </label>
                     <div class="col-md-9 col-sm-12">
-                    <a class="btn btn-primary" id="cmd">Descargar</a>
+                    <a class="btn btn-primary" id="cmd">Ver</a>
                     </div>
                 </div>
                 
