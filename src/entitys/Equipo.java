@@ -20,7 +20,7 @@ public class Equipo implements Serializable {
 
 	private String bandera;
 
-	private boolean  estado;
+	private String estado;
 
 	private String fase;
 
@@ -57,11 +57,11 @@ public class Equipo implements Serializable {
 		this.bandera = bandera;
 	}
 
-	public boolean  getEstado() {
+	public String getEstado() {
 		return this.estado;
 	}
 
-	public void setEstado(boolean  estado) {
+	public void setEstado(String estado) {
 		this.estado = estado;
 	}
 

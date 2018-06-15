@@ -33,7 +33,7 @@ response.setHeader("Expires", "0"); // Proxies. %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:if test="${empty fn:trim(sessionScope.correo)}">
 
-<c:redirect url = "ValidarSesionController?sesion=activa"/>
+<c:redirect url = "ValidarSesionController?sesion=noactiva"/>
 </c:if>
 
 
@@ -47,7 +47,7 @@ response.setHeader("Expires", "0"); // Proxies. %>
 	
 </header>
 
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
 	
   <div class="container-fluid">
     <div class="navbar-header">
@@ -58,18 +58,67 @@ response.setHeader("Expires", "0"); // Proxies. %>
      		<span class="icon-bar"></span>
       		<span class="icon-bar"></span>
 		</button>
-      <a class="navbar-brand" href="#" onClick="location.reload();"> Mundo Apuestas</a>
+      <a class="navbar-brand" href="#" "> Mundo Apuestas</a>
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#" onClick="location.reload();">Partidos</a></li>
-      <li><a href="#" data-seleccion="grupos">Grupos</a></li>
-      <li><a href="#" data-seleccion="consultarUsuarios">Usuarios</a></li>
+    
+    <c:choose> 
+ 	<c:when test="${sessionScope.perfil.equals('administrador')}">
+    <li class="active"><a href="#" onClick="location.reload();">Partidos</a></li>
+    <li><a href="#" data-seleccion="grupos">Grupos</a></li>
+    <li><a href="#" data-seleccion="consultarUsuarios">Usuarios</a></li>
+    <script type="text/javascript" src="js/principal.js"></script>
+  	</c:when>
+  	<c:otherwise>
+      <li ><a href="#" data-seleccion="apuesta">Apuestas</a></li>
+      <li><a href="#" data-seleccion="gruposU">Grupos</a></li>
+      <li><a href="#" data-seleccion="verApuesta">Mis Apuetas</a></li>
+      <script type="text/javascript" src="js/principal2.js"></script>
+  	</c:otherwise>
+	</c:choose>
+	
     </ul>
     <ul class="nav navbar-nav navbar-right">
      
-      <li><a href="#"  data-seleccion="usuarios"><span class="glyphicon glyphicon-user"></span>  Mi Cuenta</a></li>
-       <a class="navbar-brand" href="ValidarSesionController?sesion=activa" ><span class="glyphicon glyphicon-log-in"></span>Sign Up</a>
+ 	<c:choose> 
+ 	<c:when test="${sessionScope.perfil.equals('usuario')}">
+   	<li><a href="#"  data-seleccion="usuarios"><span class="glyphicon glyphicon-user"></span>  Mi Cuenta</a></li>
+   
+							
+    </c:when>
+  	<c:otherwise>
+  	<!-- Trigger the modal with a button -->
+  	<li><a href="#"    data-toggle="modal" data-target="#terminar"><span class="glyphicon glyphicon-user"></span>  Terminar Torneo</a></li>
+  	<!-- Modal -->
+	<div id="terminar" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Terminar el Mundial</h4>
+      </div>
+      <div class="modal-body">
+      <form action="TerminarController" method="post">
+      <br>
+		<center>
+		<button class="btn btn-danger">Terminar</button>
+		</center>
+      </form>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    </c:otherwise>
+	</c:choose>
+	<a class="navbar-brand" href="ValidarSesionController?sesion=noactivaja" ><span class="glyphicon glyphicon-log-in"></span>Sign Up</a>
     </ul>
     
   </div>
@@ -88,7 +137,7 @@ response.setHeader("Expires", "0"); // Proxies. %>
 <div class="container">
 
 	<h4 class="textFooter">
-		<span>Derechos de autor recerbados por Mundo Apuestas</span>
+		<span>Derechos de autor reservados por Mundo Apuestas</span>
 	</h4>
 
 	<h4 class="textFooter">

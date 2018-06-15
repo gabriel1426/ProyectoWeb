@@ -2,6 +2,7 @@ package entitys;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -21,41 +22,19 @@ public class Usuario implements Serializable {
 
 	private String estadoPago;
 
+	private double ganancia;
+
 	private String nombre;
 
 	private String password;
 
-	private String telefono;
-	
-	private String recibo;
-	
+	private String perfil;
+
 	private int puntos;
-	
-	private double ganancia;
 
-	
+	private String recibo;
 
-	public int getPuntos() {
-		return puntos;
-	}
-
-
-
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
-	}
-
-
-
-	public double getGanancia() {
-		return ganancia;
-	}
-
-
-
-	public void setGanancia(double ganancia) {
-		this.ganancia = ganancia;
-	}
+	private String telefono;
 
 	//bi-directional many-to-one association to Apuesta
 	@OneToMany(mappedBy="usuario")
@@ -63,10 +42,7 @@ public class Usuario implements Serializable {
 
 	public Usuario() {
 	}
-	
-	
-
-	public Usuario(String correo, int cedula, String  estadoPago, String nombre, String password, String telefono) {
+	public Usuario(String correo, int cedula, String  estadoPago, String nombre, String password, String telefono,String usuario) {
 		super();
 		this.correo = correo;
 		this.cedula = cedula;
@@ -74,10 +50,9 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 		this.password = password;
 		this.telefono = telefono;
+		this.perfil=usuario;
 		
 	}
-
-
 
 	public String getCorreo() {
 		return this.correo;
@@ -95,12 +70,20 @@ public class Usuario implements Serializable {
 		this.cedula = cedula;
 	}
 
-	public String  getEstadoPago() {
+	public String getEstadoPago() {
 		return this.estadoPago;
 	}
 
-	public void setEstadoPago(String  estadoPago) {
+	public void setEstadoPago(String estadoPago) {
 		this.estadoPago = estadoPago;
+	}
+
+	public double getGanancia() {
+		return this.ganancia;
+	}
+
+	public void setGanancia(double ganancia) {
+		this.ganancia = ganancia;
 	}
 
 	public String getNombre() {
@@ -119,6 +102,30 @@ public class Usuario implements Serializable {
 		this.password = password;
 	}
 
+	public String getPerfil() {
+		return this.perfil;
+	}
+
+	public void setPerfil(String perfil) {
+		this.perfil = perfil;
+	}
+
+	public int getPuntos() {
+		return this.puntos;
+	}
+
+	public void setPuntos(int puntos) {
+		this.puntos = puntos;
+	}
+
+	public String getRecibo() {
+		return this.recibo;
+	}
+
+	public void setRecibo(String recibo) {
+		this.recibo = recibo;
+	}
+
 	public String getTelefono() {
 		return this.telefono;
 	}
@@ -133,13 +140,6 @@ public class Usuario implements Serializable {
 
 	public void setApuestas(List<Apuesta> apuestas) {
 		this.apuestas = apuestas;
-	}
-	public String getRecibo() {
-		return recibo;
-	}
-
-	public void setRecibo(String recibo) {
-		this.recibo = recibo;
 	}
 
 	public Apuesta addApuesta(Apuesta apuesta) {

@@ -36,7 +36,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:if test="${not empty fn:trim(sessionScope.correo)}">
 
-<c:redirect url = "ValidarSesionController?sesion=activa"/>
+<c:redirect url = "ValidarSesionController?sesion=noactiva"/>
 </c:if>
 
 

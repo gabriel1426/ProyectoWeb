@@ -3,6 +3,8 @@ package controlador;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import util.Procesos;
+import util.ProcesosApuesta;
 
 /**
  * Servlet implementation class PartidoController
@@ -50,34 +53,53 @@ public class PartidoController extends HttpServlet {
 
 			
 			int eLocal = Integer.parseInt(request.getParameter("local"));
-			int eVicitante = Integer.parseInt(request.getParameter("vicitante"));
+			int evisitante = Integer.parseInt(request.getParameter("visitante"));
 			String estado = request.getParameter("estado");
 			String fase = request.getParameter("fase");
-			java.util.Date date = new java.util.Date();
+			String f =  request.getParameter("fecha");
+			String h =  request.getParameter("hora");
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+			java.util.Date fecha = null;
+			try {
+				fecha =  formatter.parse(f);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			java.sql.Date date=new java.sql.Date(fecha.getTime());
 			Timestamp timestamp = new Timestamp(date.getTime());
-
-			p.registrarPartido(eLocal, eVicitante, estado,fase,timestamp);
+			
+			p.registrarPartido(eLocal, evisitante, estado,fase,timestamp,h);
 			
 			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
+			response.sendRedirect("home.jsp");
 			//rd.forward(request, response);
 
 		} else if (select == 1) {
 
 			// Actualizar Partidos
 			Procesos p = new Procesos();
+			ProcesosApuesta pa = new ProcesosApuesta();
 
 			int id = Integer.parseInt(request.getParameter("idPartido"));
 			String eLocal = request.getParameter("local");
-			String eVicitante = request.getParameter("vicitante");
+			String evisitante = request.getParameter("visitante");
 			String estado = request.getParameter("estado");
 			int glocal = Integer.parseInt(request.getParameter("glocal"));
-			int gvicitante = Integer.parseInt(request.getParameter("gvicitante"));
+			int gvisitante = Integer.parseInt(request.getParameter("gvisitante"));
 
-			p.actualizarPartido(id, eLocal, eVicitante, glocal, gvicitante,estado);
-
+			p.actualizarPartido(id, eLocal, evisitante, glocal, gvisitante,estado);
+			
+			if (estado.equals("Finalizado")){
+				pa.validarApuesta();
+			}
+			
+			pa.actualizarEstAp();
+		
+			
 			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
+			response.sendRedirect("home.jsp");
 			//rd.forward(request, response);
 
 		} else if (select == 2) {
@@ -89,7 +111,7 @@ public class PartidoController extends HttpServlet {
 			p.EliminarPartido(id);
 
 			//RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
+			response.sendRedirect("home.jsp");
 			//rd.forward(request, response);
 
 		}

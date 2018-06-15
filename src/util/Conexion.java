@@ -44,6 +44,8 @@ public class Conexion<T> {
 	
 		T object = (T)em.createQuery("SELECT c FROM Usuario c WHERE c.correo='"+correo+"' AND c.password='"+password+"'");
 		
+		
+		
 		return object;
 	}
 	
@@ -52,13 +54,30 @@ public class Conexion<T> {
 		List<T> lista = (List<T>) consulta.getResultList();
 		return lista;
 	}
+	public List<T> listPartido(){
+		
+		List<T> lista1 = (List<T>)em.createQuery("Select a From Partido a ORDER BY a.idPartido DESC",  c).getResultList();
+		return lista1;
+	}
+	public List<T> listApuesta(){
+		
+		
+		List<T> lista1 = (List<T>)em.createQuery("Select a From Apuesta a ORDER BY a.idApuesta DESC",  c).getResultList();
+		return lista1;
+	}
 	
+public List<T> listUsuarioGanancia(){
+		
+		
+		List<T> lista1 = (List<T>)em.createQuery("Select a From Usuario a ORDER BY a.puntos DESC",  c).getResultList();
+		return lista1;
+	}
 	
 	public void insert(T o){
 		try {
 			em.getTransaction().begin();
 			em.persist(o);
-			System.out.println(o.toString());
+			
 			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();

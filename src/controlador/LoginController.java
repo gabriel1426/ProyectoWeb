@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import entitys.Usuario;
-import model.ProcesosBD;
 import util.Procesos;
 
 
@@ -29,7 +28,7 @@ public class LoginController extends HttpServlet {
      * Default constructor. 
      */
 	
-	ProcesosBD myNegocio = new ProcesosBD();
+	
     public LoginController() {
     	super();
         // TODO Auto-generated constructor stub
@@ -44,7 +43,6 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession sesion = request.getSession();
 		sesion.invalidate();
-		
         response.sendRedirect("http://localhost:8080/ProyectoWeb/index.jsp");
 	}
 
@@ -70,9 +68,11 @@ public class LoginController extends HttpServlet {
 			misession.setAttribute("telefono",miUsuario.getTelefono());
 			misession.setAttribute("contraseña",miUsuario.getPassword());
 			misession.setAttribute("estado",miUsuario.getEstadoPago());
+			misession.setAttribute("perfil",miUsuario.getPerfil());
+			misession.setAttribute("puntos",miUsuario.getPuntos());
 			
-		RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-		rd.forward(request, response);
+			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+			rd.forward(request, response);
 		} else{
 			
 			request.setAttribute("entrar", "falso");

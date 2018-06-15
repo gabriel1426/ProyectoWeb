@@ -2,6 +2,7 @@ package util;
 
 
 import javax.servlet.RequestDispatcher;
+import javax.sound.midi.Soundbank;
 
 import com.google.gson.Gson;
 
@@ -42,7 +43,7 @@ public class Procesos {
 	
 	public void registrarUsuario(String correo, int cedula, String estadoPago, String nombre, String password,
 			String telefono) {
-		Usuario usuario=new Usuario(correo, cedula, estadoPago, nombre, password, telefono);
+		Usuario usuario=new Usuario(correo, cedula, estadoPago, nombre, password, telefono,"usuario");
 		IProcesosDB<Usuario> usDao= new UsuarioDao();
 		usDao.insert(usuario);
 	}
@@ -81,30 +82,27 @@ public class Procesos {
 	}
 	
 
-
-	public void registrarPartido(int eLocal, int eVicitante, String estado,String fase, Timestamp fecha) {
+	public void registrarPartido(int eLocal, int evisitante, String estado,String fase, Timestamp fecha,String hora) {
 	
-		
 		
 		
 		IProcesosDB<Equipo> equipoDao= new EquipoDao();
 		Equipo e1 = equipoDao.find(eLocal);
-		Equipo e2 = equipoDao.find(eVicitante);
-		Partido p = new Partido(estado, 0, 0, e1, e2,fase,fecha);
+		Equipo e2 = equipoDao.find(evisitante);
+		Partido p = new Partido(estado, 0, 0, e1, e2,fase,fecha,hora);
 		IProcesosDB<Partido> parDao= new PartidoDao();
 		parDao.insert(p);
 		
 	}
 
 
-	public void actualizarPartido(int id, String eLocal, String eVicitante, int glocal, int gvicitante, String estado) {
+	public void actualizarPartido(int id, String eLocal, String evisitante, int glocal, int gvisitante, String estado) {
 		
 		IProcesosDB<Partido> parDao= new PartidoDao();
 		Partido p=parDao.find(id);
 		p.setGEquipo1(glocal);
-		p.setGEquipo2(gvicitante);
+		p.setGEquipo2(gvisitante);
 		p.setEstado(estado);
-		
 		parDao.update(p);
 		
 	}
@@ -121,10 +119,11 @@ public class Procesos {
 	public List<Partido> listarPartidos(){
 		
 		IProcesosDB<Partido> partidoDao= new PartidoDao();
-		List<Partido> e = partidoDao.list();
+		List<Partido> e = partidoDao.listPartido();
 		
 		for(Partido p: e){
 			
+
 		}
 		
 		return e;
@@ -159,6 +158,45 @@ public class Procesos {
 		u.setRecibo("");
 		u.setEstadoPago("faltante");
 		us.update(u);
+		
+	}
+
+
+	public void actualizarGrupos(int id,int puntos, String fase, String estado) {
+		
+		IProcesosDB<Equipo> eq= new EquipoDao();
+		Equipo e= eq.find(id);
+		e.setPuntos(puntos);
+		e.setFase(fase);
+		e.setEstado(estado);
+		eq.update(e);
+	}
+
+
+	public void terminarMundial() {
+		
+		IProcesosDB<Usuario> eq= new UsuarioDao();
+		List<Usuario> u= eq.listUsuarioGanancia();
+		double cantidad = 16000*u.size();
+		IProcesosDB<Usuario> us= new UsuariosDao();
+		for (int i=0;i<3;i++){
+			double ganancia=0;
+			
+			Usuario aux = u.get(i);
+			
+			if (i==0){
+				aux.setGanancia(cantidad*.30);
+				us.update(aux);
+			}else if (i==1){
+				aux.setGanancia(cantidad*.25);
+				us.update(aux);
+			}else {
+				aux.setGanancia(cantidad*.15);
+				us.update(aux);
+			}
+			
+		}
+		
 		
 	}
 

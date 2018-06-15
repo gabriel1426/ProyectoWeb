@@ -4,10 +4,12 @@
 	
 <br>
 <div class="container">
-<div class="col-lg-4 col-md46 col-sm-12 col-xs-12">
-	<h3>Mis Puntos</h3>
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+	
+			<h2> Mis puntos </h2>
+			<br>
+			<h3>LLevas acomulados: ${sessionScope.puntos}</h3>
 </div>
-
 
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
@@ -15,7 +17,11 @@
 	<table class="mytabla table" id="myTable">
 	
 			<tr>
-			<th colspan="2"><center>Mis Datos</center></th>
+			<th style="vertical-align:middle;">
+			<center>Mis Datos</center> </th><th><div class="text-right">
+							<a href="ValidarSesionController?sesion=activa" class="btn"><span class="fas fa-sync-alt"></a>
+							</div> </th>
+			
 			</tr>
 			
 			<tr>

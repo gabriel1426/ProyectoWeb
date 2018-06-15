@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import entitys.Usuario;
+import util.Procesos;
+
 /**
  * Servlet implementation class ValidarSesionController
  */
@@ -27,11 +30,21 @@ public class ValidarSesionController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		HttpSession sesion = request.getSession();
+		if(request.getParameter("sesion").equals("activa")){
+			String correo= (String) sesion.getAttribute("correo");
+			Procesos p = new Procesos();
+			Usuario u = p.buscarUsuario(correo);
+			sesion.setAttribute("estado",u.getEstadoPago());
+			response.sendRedirect("home.jsp");
+			
+		}else {
 		sesion.invalidate();
 		System.out.println("entre aqui");
-        response.sendRedirect("http://localhost:8080/ProyectoWeb/index.jsp");
-	}
+        response.sendRedirect("index.jsp");
+		}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -46,7 +59,7 @@ public class ValidarSesionController extends HttpServlet {
 			String correo= (String) misession.getAttribute("correo");
 			
 			if (correo.isEmpty()){
-				response.sendRedirect("http://localhost:8080/ProyectoWeb/home.jsp");
+				response.sendRedirect("home.jsp");
 			}
 		}
 	}

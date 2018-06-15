@@ -1,7 +1,3 @@
-$(document).ready(function(event){ 
-	$("#contenedor").load('listarPartidos.jsp');
-
-	})
 
 	$("li a").click(function(event){
 	event.preventDefault();
@@ -112,3 +108,11 @@ function myFunction2() {
 	  }
 	   
 	}
+function openApuesta(apuestaName) {
+    var i;
+    var x = document.getElementsByClassName("apuesta");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    document.getElementById(apuestaName).style.display = "block";  
+}

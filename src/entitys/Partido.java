@@ -1,10 +1,10 @@
 package entitys;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -24,6 +24,13 @@ public class Partido implements Serializable {
 
 	private String estado;
 
+	private String fase;
+
+	
+	private Timestamp fecha;
+
+	private String hora;
+	
 	@Column(name="g_equipo1")
 	private int gEquipo1;
 
@@ -44,17 +51,10 @@ public class Partido implements Serializable {
 	@JoinColumn(name="id_equipo2")
 	private Equipo equipo2;
 
-	private String fase;
-	
-	private Timestamp fecha;
-	
-	
-
-
 	public Partido() {
 	}
 
-	public Partido(String estado, int gEquipo1, int gEquipo2, Equipo equipo1, Equipo equipo2,String fase,Timestamp fecha) {
+	public Partido(String estado, int gEquipo1, int gEquipo2, Equipo equipo1, Equipo equipo2,String fase,Timestamp fecha, String hora) {
 		super();
 		this.estado = estado;
 		this.gEquipo1 = gEquipo1;
@@ -63,6 +63,7 @@ public class Partido implements Serializable {
 		this.equipo2 = equipo2;
 		this.fase=fase;
 		this.fecha=fecha;
+		this.hora=hora;
 	}
 
 	@Override
@@ -71,8 +72,7 @@ public class Partido implements Serializable {
 				+ gEquipo2 + ", apuestas=" + apuestas + ", equipo1=" + equipo1 + ", equipo2=" + equipo2 + "fase=" + fase + "fecha=" + fecha +"]";
 	}
 
-
-
+	
 	public int getIdPartido() {
 		return this.idPartido;
 	}
@@ -87,6 +87,22 @@ public class Partido implements Serializable {
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public String getFase() {
+		return this.fase;
+	}
+
+	public void setFase(String fase) {
+		this.fase = fase;
+	}
+
+	public Timestamp getFecha() {
+		return this.fecha;
+	}
+
+	public void setFecha(Timestamp fecha) {
+		this.fecha = fecha;
 	}
 
 	public int getGEquipo1() {
@@ -142,20 +158,31 @@ public class Partido implements Serializable {
 	public void setEquipo2(Equipo equipo2) {
 		this.equipo2 = equipo2;
 	}
-	public String getFase() {
-		return fase;
+
+	public String getHora() {
+		return hora;
 	}
 
-	public void setFase(String fase) {
-		this.fase = fase;
+	public void setHora(String hora) {
+		this.hora = hora;
 	}
 
-	public Timestamp getFecha() {
-		return fecha;
+	public int getgEquipo1() {
+		return gEquipo1;
 	}
 
-	public void setFecha(Timestamp fecha) {
-		this.fecha = fecha;
+	public void setgEquipo1(int gEquipo1) {
+		this.gEquipo1 = gEquipo1;
 	}
+
+	public int getgEquipo2() {
+		return gEquipo2;
+	}
+
+	public void setgEquipo2(int gEquipo2) {
+		this.gEquipo2 = gEquipo2;
+	}
+	
+	
 
 }

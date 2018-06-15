@@ -27,11 +27,11 @@
 
 		<tr class="header">
 
-			<th>Nombre</th>
-			<th>Telefono</th>
-			<th>Cedula</th>
-			<th>Estado de pago</th>
-			<th>Visualizar</th>
+			<th style="text-align: center;">Nombre</th>
+			<th style="text-align: center;">Telefono</th>
+			<th style="text-align: center;">Cedula</th>
+			<th style="text-align: center;">Estado de pago</th>
+			<th style="text-align: center;">Visualizar</th>
 			
 
 
@@ -39,11 +39,11 @@
 
 		<c:forEach items="${jpro.listarUsuarios()}" var="item">
 			<tr>
-				<td style="vertical-align:middle;" ><c:out value="${item.nombre}" /></td>
-				<td style="vertical-align:middle;" ><c:out value="${item.telefono}" /></td>
-				<td style="vertical-align:middle;" ><c:out value="${item.cedula}" /></td>
-				<td style="vertical-align:middle;" ><c:out value="${item.estadoPago}" /></td>
-				<td style="vertical-align:middle;" >
+				<td style="text-align: center;" ><c:out value="${item.nombre}" /></td>
+				<td style="text-align: center;" ><c:out value="${item.telefono}" /></td>
+				<td style="text-align: center;" ><c:out value="${item.cedula}" /></td>
+				<td style="text-align: center;" ><c:out value="${item.estadoPago}" /></td>
+				<td style="text-align: center;" >
 					
 					<c:choose>
    						 <c:when test="${empty fn:trim(item.recibo)}">

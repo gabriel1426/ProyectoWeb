@@ -41,9 +41,9 @@
 						<div class="form-group col-md-12">
 
 							<label class="control-label col-md-2" for="nombre">Equipo
-								Vicitante: </label>
+								Visitante: </label>
 							<div class="col-md-9 col-sm-12">
-								<select name="vicitante" class="form-control" id="vicitante">
+								<select name="visitante" class="form-control" id="visitante">
 									<option value="0">Ninguno</option>
 									<c:forEach items="${jpro.ListarGrupos()}" var="item">
 										<option value="${item.idEquipo}">${item.nombre}</option>
@@ -67,6 +67,20 @@
 									<option value="Final">Final</option>
 								</select> <input class="form-control" type="hidden" name="estado"
 									id="estado" value="Activo">
+							</div>
+						</div>
+						<div class="form-group col-md-12">
+
+							<label class="control-label col-md-2" for="fecha">Fecha:
+							</label>
+							<div class="col-md-5 col-sm-12">
+							<input class="form-control" type="date" name="fecha"
+							id="fecha">
+								
+							</div>
+							<div class="col-md-4 col-sm-12">
+							<input class="form-control" type="time" name="hora" value="11:45:00" max="22:30:00" min="00:00:00" step="1">
+								
 							</div>
 						</div>
 						<div>
@@ -131,9 +145,9 @@
 			<tr class="header">
 
 				<th style="text-align: center;">Fecha</th>
-				<th style="text-align: center;">Equipo 1</th>
+				<th style="text-align: center;">Local</th>
 				<th colspan="2" style="text-align: center;">Marcador</th>
-				<th style="text-align: center;">Equipo 2</th>
+				<th style="text-align: center;">Visitante </th>
 				<th style="text-align: center;">Estado</th>
 				<th style="text-align: center;">Fase</th>
 				<th colspan="2" style="text-align: center;">Acciones</th>
@@ -143,7 +157,7 @@
 			<c:forEach items="${jpro.listarPartidos()}" var="item">
 				<tr>
 					<td style="vertical-align: middle;"><center>
-							<fmt:formatDate type="both" dateStyle="short" timeStyle="short" value="${item.fecha}" /></center></td>
+							<fmt:formatDate type="date"  value="${item.fecha}" />  ${item.hora}</center></td>
 					<td style="vertical-align: middle;"><div class="text-right">
 							<c:out value="${item.equipo1.nombre}" />
 							<img class="img-equipos headerImg img-responsive"
@@ -168,12 +182,10 @@
 
 					<td style="vertical-align: middle;">
 						<!-- Trigger the modal with a button -->
-						<center>
-							<button type="button" class="btn btn-info" data-toggle="modal"
-								data-target="#${item.idPartido}1">
-								<span class="fas fa-edit"></span>
-							</button>
-						</center> <!-- Modal -->
+						
+							<button style="margin: auto;"type="button" class="btn btn-info" data-toggle="modal"
+								data-target="#${item.idPartido}1"><span class="fas fa-edit"></span></button>
+						 <!-- Modal -->
 						<div id="${item.idPartido}1" class="modal fade" role="dialog">
 							<div class="modal-dialog">
 
@@ -204,15 +216,15 @@
 
 											</div>
 											<div class="form-group  col-md-12">
-												<label for="vicitante">Equipo vicitante: </label> <input
-													class="form-control" type="text" name="vicitante"
-													id="vicitante" value="${item.equipo2.nombre}" readonly>
+												<label for="visitante">Equipo visitante: </label> <input
+													class="form-control" type="text" name="visitante"
+													id="visitante" value="${item.equipo2.nombre}" readonly>
 
 											</div>
 											<div class="form-group  col-md-12">
-												<label for="gvicitante">Goles vicitante: </label> <input
-													class="form-control" type="number" name="gvicitante"
-													id="gvicitante" value="${item.getGEquipo2()}">
+												<label for="gvisitante">Goles visitante: </label> <input
+													class="form-control" type="number" name="gvisitante"
+													id="gvisitante" value="${item.getGEquipo2()}">
 
 											</div>
 											<div class="form-group col-md-12">
