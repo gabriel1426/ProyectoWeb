@@ -77,7 +77,7 @@ response.setHeader("Expires", "0"); // Proxies. %>
       <script type="text/javascript" src="js/principal2.js"></script>
   	</c:otherwise>
 	</c:choose>
-	
+	<li><a href="#" data-seleccion="clasificacion">Ranking</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
      

@@ -200,7 +200,34 @@ public class Procesos {
 		
 	}
 
-
+	public List<Usuario> ranking(String usuario){
+		
+		IProcesosDB<Usuario> eq= new UsuarioDao();
+		List<Usuario> u= eq.listUsuarioGanancia();
+		boolean encontrado=false;
+		List<Usuario> aux = new ArrayList<Usuario>();
+		
+		for(int i=0; i<u.size();i++){
+			if (u.get(i).getPerfil().equals("usuario")){
+				
+			
+			if (aux.size()<11){
+				if (u.get(i).getCorreo().equals(usuario)){
+					encontrado=true;
+				}
+				aux.add(u.get(i));
+				
+			}else {
+				
+					break;
+				
+			}
+		}
+		}
+		
+		
+		return aux;
+	}
 	
 
 
