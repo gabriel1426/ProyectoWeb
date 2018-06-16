@@ -33,7 +33,7 @@
 	<c:if test="${item.grupo.equals('A')}">
 		
 	<tr>
-		<td style="text-align: center;" ><img class="img-equipos headerImg img-responsive"
+		<td ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out value="${item.nombre}" /></td>
 		<td style="text-align: center;" ><c:out value="${item.puntos}" /></td>
 		<td style="text-align: center;" ><c:out value="${item.fase}" /></td>
@@ -141,10 +141,10 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;" >Nombre Equipo</th>
+			<th style="text-align: center;" >Puntos</th>
+			<th style="text-align: center;" >Fase</th>
+			<th style="text-align: center;" >Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
@@ -154,10 +154,10 @@
 		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
-		<td style="text-align: center;" >${item.estado}</td>
-		<td style="text-align: center;">
+		<td style="text-align: center;"  ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;"  ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;"  >${item.estado}</td>
+		<td style="text-align: center;" >
 		<c:choose> 
 		<c:when test="${item.estado.equals('Eliminado')}">
 		<button style="text-align: center" type="button"
@@ -261,21 +261,21 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;" >Nombre Equipo</th>
+			<th style="text-align: center;" >Puntos</th>
+			<th style="text-align: center;" >Fase</th>
+			<th style="text-align: center;" >Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
 	<c:if test="${item.grupo.equals('C')}">
 		
 	<tr>
-		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
+		<td  style="vertical-align:middle;"  ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;"  ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;"  ><c:out value="${item.fase}" /></td>
 		<td style="text-align: center;" >${item.estado}</td>
 		<td style="text-align: center;">
 		<c:choose> 
@@ -381,21 +381,21 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;" >Nombre Equipo</th>
+			<th style="text-align: center;" >Puntos</th>
+			<th style="text-align: center;" >Fase</th>
+			<th style="text-align: center;" >Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
 	<c:if test="${item.grupo.equals('D')}">
 		
 	<tr>
-		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
+		<td  style="vertical-align:middle;"><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;"  ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;"  ><c:out value="${item.fase}" /></td>
 		<td style="text-align: center;" >${item.estado}</td>
 		<td style="text-align: center;">
 		<c:choose> 
@@ -502,10 +502,10 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;" >Nombre Equipo</th>
+			<th style="text-align: center;" >Puntos</th>
+			<th style="text-align: center;" >Fase</th>
+			<th style="text-align: center;" >Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
@@ -515,8 +515,8 @@
 		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;"  ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.fase}" /></td>
 		<td style="text-align: center;" >${item.estado}</td>
 		<td style="text-align: center;">
 		<c:choose> 
@@ -623,10 +623,10 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;">Nombre Equipo</th>
+			<th style="text-align: center;">Puntos</th>
+			<th style="text-align: center;">Fase</th>
+			<th style="text-align: center;">Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
@@ -636,8 +636,8 @@
 		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.fase}" /></td>
 		<td style="text-align: center;" >${item.estado}</td>
 		<td style="text-align: center;">
 		<c:choose> 
@@ -742,10 +742,10 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;">Nombre Equipo</th>
+			<th style="text-align: center;">Puntos</th>
+			<th style="text-align: center;">Fase</th>
+			<th style="text-align: center;">Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
@@ -755,8 +755,8 @@
 		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.fase}" /></td>
 		<td style="text-align: center;" >${item.estado}</td>
 		<td style="text-align: center;">
 		<c:choose> 
@@ -863,10 +863,10 @@
 		<table id="tablaGrupo" class="table ">
 		<tr>
 
-			<th>Nombre Equipo</th>
-			<th>Puntos</th>
-			<th>Fase</th>
-			<th>Estado</th>
+			<th style="text-align: center;">Nombre Equipo</th>
+			<th style="text-align: center;">Puntos</th>
+			<th style="text-align: center;">Fase</th>
+			<th style="text-align: center;">Estado</th>
 		</tr>
   
   <c:forEach items="${jPro.ListarGrupos()}" var="item">
@@ -876,8 +876,8 @@
 		<td style="vertical-align:middle;" ><img class="img-equipos headerImg img-responsive"
 			src="<c:out value="${item.bandera}"/>" alt="" /> <c:out
 				value="${item.nombre}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.puntos}" /></td>
-		<td style="vertical-align:middle;" ><c:out value="${item.fase}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.puntos}" /></td>
+		<td style="text-align: center;" ><c:out value="${item.fase}" /></td>
 		<td style="text-align: center;" >${item.estado}</td>
 		<td style="text-align: center;">
 		<c:choose> 

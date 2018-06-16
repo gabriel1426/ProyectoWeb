@@ -53,7 +53,7 @@
 				<th style="text-align: center;">Fecha</th>
 				<th style="text-align: center;">Local</th>
 				<th colspan="2" style="text-align: center;">Marcador</th>
-				<th style="text-align: center;">Visitantev</th>
+				<th style="text-align: center;">Visitante</th>
 				<th style="text-align: center;">Estado</th>
 				<th style="text-align: center;">Fase</th>
 				<th style="text-align: center;"></th>
@@ -135,8 +135,8 @@
 											<div class="w3-bar w3-default">
 
 												<center><button class="w3-bar-item w3-button"
-													onclick="openApuesta('${item.idPartido}2')">divina al
-													marcador</button></center>
+													onclick="openApuesta('${item.idPartido}2')">Adivina el
+													marcador final</button></center>
 												<center><button class="w3-bar-item w3-button"
 													onclick="openApuesta('${item.idPartido}3')">Adivina el equipo ganador</button></center>
 											</div>

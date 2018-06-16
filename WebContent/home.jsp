@@ -73,7 +73,7 @@ response.setHeader("Expires", "0"); // Proxies. %>
   	<c:otherwise>
       <li ><a href="#" data-seleccion="apuesta">Apuestas</a></li>
       <li><a href="#" data-seleccion="gruposU">Grupos</a></li>
-      <li><a href="#" data-seleccion="verApuesta">Mis Apuetas</a></li>
+      <li><a href="#" data-seleccion="verApuesta">Mis Apuestas</a></li>
       <script type="text/javascript" src="js/principal2.js"></script>
   	</c:otherwise>
 	</c:choose>
@@ -89,7 +89,7 @@ response.setHeader("Expires", "0"); // Proxies. %>
     </c:when>
   	<c:otherwise>
   	<!-- Trigger the modal with a button -->
-  	<li><a href="#"    data-toggle="modal" data-target="#terminar"><span class="glyphicon glyphicon-user"></span>  Terminar Torneo</a></li>
+  	<li><a href="#"    data-toggle="modal" data-target="#terminar"><span class="glyphicon glyphicon-user"></span>  Terminar Mundial</a></li>
   	<!-- Modal -->
 	<div id="terminar" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -140,18 +140,6 @@ response.setHeader("Expires", "0"); // Proxies. %>
 		<span>Derechos de autor reservados por Mundo Apuestas</span>
 	</h4>
 
-	<h4 class="textFooter">
-		<a class="myicon-red" target="_blank" href="https://www.facebook.com/">
-			<i class=" fab fa-facebook-square"></i> Facebook
-		</a>
-	</h4>
-
-	<h4 class="textFooter">
-		<a class=" myicon-red" target="_blank"
-			href="https://twitter.com/?lang=es"> <i
-			class="fab fa-facebook-square"></i> Twitter
-		</a>
-	</h4>
 
 </div>
 

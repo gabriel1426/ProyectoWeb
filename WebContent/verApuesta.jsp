@@ -6,7 +6,7 @@
 <div>
 	<br>
 	<center>
-		<h4>Listado de Partidos</h4>
+		<h4>Mis Apuestas</h4>
 	</center>
 
 	<div class="container">
@@ -62,13 +62,13 @@
 					<c:when test="${item.estado.equals('Activo')}">
     				<button style="margin: auto;" type="button" class="btn btn-info"
 							data-toggle="modal" data-target="#${item.idApuesta}1" >
-							<span class="fas fa-edit">Actualzar</span>
+							<span class="fas fa-edit">Actualizar</span>
 					</button> <!-- Modal -->
  					</c:when>
  					<c:otherwise>
  					<button style="margin: auto;" type="button" class="btn btn-info"
 							data-toggle="modal" data-target="#${item.idApuesta}1" disabled>
-							<span class="fas fa-edit">Actualzar</span>
+							<span class="fas fa-edit">Actualizar</span>
 					</button> <!-- Modal -->
 					</c:otherwise>			
 					</c:choose>				
@@ -91,8 +91,8 @@
 											<div class="w3-bar w3-default">
 
 												<center><button class="w3-bar-item w3-button"
-													onclick="openApuesta('${item.partido.idPartido}2')">divina al
-													marcador</button></center>
+													onclick="openApuesta('${item.partido.idPartido}2')">Adivina el
+													marcador final</button></center>
 												<center><button class="w3-bar-item w3-button"
 													onclick="openApuesta('${item.partido.idPartido}3')">Adivina el equipo ganador</button></center>
 											</div>

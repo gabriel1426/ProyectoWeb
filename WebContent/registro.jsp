@@ -113,25 +113,26 @@
 										<div class="modal-content">
 											<div class="modal-header">
 												<button type="button" class="close" data-dismiss="modal">&times;</button>
-												<h3 class="modal-title">Informacion de pago</h3>
+												<h3 class="modal-title">Información de pago</h3>
 											</div>
 											<div class="modal-body col-md-12 col-sm-12 col-xs-12">
-												<p>Para que puedas empezar a apostar con nosotros es
-													necesario que des un aporte de $16.000 pesos. Este dinero
-													es todo lo que necesitas apostar y con ello tendrás derecho
-													a apostar en todos los partidos de este mundial Rusia 2018</p>
+												<p>Para que puedas empezar a apostar con nosotros es 
+												necesario que des un aporte de $16.000 pesos. 
+												Este dinero es todo lo que necesitas para apostar y 
+												con ello tendrás derecho a apostar en todos los    
+												partidos de este mundial Rusia 2018.</p>
 												<h3>
 													<stronge>Consignación</stronge>
 												</h3>
 												<p>Debes consignar en el banco Bancolombia la suma de
 													dieciséis mil pesos ($16.000) al número de cuenta
-													No. 49787303420</p>
-												<p>Una vez hayas pagado debes de tomar una foto clara
-													a la consignación y subirla a nuestro sistema en la sección
-													mi cuenta una vez la subas debes esperar a que nosotros la validemos y la
-													aprobemos</p>
-												<p>Cuando ya tengas te recibo de pago validado y aprobado podrás
-													empezar a realizar todas las apuestas que desees</p>
+													No. 49787303420.</p>
+												<p>Cuando hayas realizado el pago debes tomarle una foto 
+												clara a la consignación y subirla a nuestro sistema en la 
+												sección mi cuenta, una vez la subas debes esperar a que
+												 nosotros la validemos y la aprobemos.</p>
+												<p>Cuando ya tengas tu recibo de pago validado y aprobado podrás
+												 empezar a realizar todas las apuestas que desees.</p>
 
 												<h3>Que te diviertas!!</h3>
 

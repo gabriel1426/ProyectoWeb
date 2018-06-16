@@ -37,6 +37,7 @@ public class ValidarSesionController extends HttpServlet {
 			Procesos p = new Procesos();
 			Usuario u = p.buscarUsuario(correo);
 			sesion.setAttribute("estado",u.getEstadoPago());
+			sesion.setAttribute("puntos",u.getPuntos());
 			response.sendRedirect("home.jsp");
 			
 		}else {

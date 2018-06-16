@@ -26,8 +26,7 @@
 						<input type="hidden" name="metodo" value="0">
 						<div class="form-group col-md-12">
 
-							<label class="control-label col-md-2" for="nombre">Equipo
-								local: </label>
+							<label class="control-label col-md-2" for="nombre">Local: </label>
 							<div class="col-md-9 col-sm-12">
 								<select name="local" class="form-control selectpicker"
 									id="local">
@@ -40,8 +39,7 @@
 						</div>
 						<div class="form-group col-md-12">
 
-							<label class="control-label col-md-2" for="nombre">Equipo
-								Visitante: </label>
+							<label class="control-label col-md-2" for="nombre">Visitante: </label>
 							<div class="col-md-9 col-sm-12">
 								<select name="visitante" class="form-control" id="visitante">
 									<option value="0">Ninguno</option>
@@ -53,7 +51,7 @@
 						</div>
 						<div class="form-group col-md-12">
 
-							<label class="control-label col-md-2" for="estado">fase:
+							<label class="control-label col-md-2" for="estado">Fase:
 							</label>
 							<div class="col-md-9 col-sm-12">
 
@@ -86,7 +84,7 @@
 						<div>
 							<br>
 							<center>
-								<button class="btn btn-success">Ingresar</button>
+								<button class="btn btn-success">Agregar</button>
 							</center>
 						</div>
 
@@ -196,15 +194,14 @@
 										<h4 class="modal-title">Actualizar Partido</h4>
 									</div>
 									<div class="modal-body col-md-12 col-sm-12 col-xs-12">
-										<p>Por favor completa los campos para actualizar la
-											infomacion del Partido</p>
+										<p>Por favor completa los campos para actualizar la información del Partido</p>
 
 										<form action="PartidoController" method="post">
 
 											<input type="hidden" name="metodo" value="1"> <input
 												type="hidden" name="idPartido" value="${item.idPartido}">
 											<div class="form-group  col-md-12">
-												<label for="local">Equipo local: </label> <input
+												<label for="local">Local: </label> <input
 													class="form-control" type="text" name="id" id="id"
 													value="${item.equipo1.nombre}" readonly>
 
@@ -216,7 +213,7 @@
 
 											</div>
 											<div class="form-group  col-md-12">
-												<label for="visitante">Equipo visitante: </label> <input
+												<label for="visitante">Visitante: </label> <input
 													class="form-control" type="text" name="visitante"
 													id="visitante" value="${item.equipo2.nombre}" readonly>
 
@@ -231,7 +228,8 @@
 
 												<label class="control-label col-md-2" for="estado">Estado:
 												</label> <select name="estado" class="form-control" id="estado">
-													<option value="0">Ninguno</option>
+													
+													<option value="${item.estado}">${item.estado}</option>
 													<option value="Activo">Activo</option>
 													<option value="En curso">En curso</option>
 													<option value="Finalizado">Finalizado</option>
@@ -274,7 +272,7 @@
 										<h4 class="modal-title">Eliminar Partdidor</h4>
 									</div>
 									<div class="modal-body col-md-12 col-sm-12 col-xs-12">
-										<p>Estas seguro que deseas eliminar al Equipo</p>
+										<p>¿Estás seguro que deseas eliminar al Equipo?</p>
 										<form action="PartidoController" method="post">
 											<input type="hidden" name="metodo" value="2"> <input
 												type="hidden" name="idPartido" value="${item.idPartido}">

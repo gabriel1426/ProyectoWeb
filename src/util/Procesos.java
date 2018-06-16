@@ -61,6 +61,13 @@ public class Procesos {
 			
 	}
 	
+	public int puntos(String correo){
+		
+		IProcesosDB<Usuario> usDao= new UsuarioDao();
+		Usuario u = usDao.find(correo);
+		return u.getPuntos();
+	}
+	
 	public Usuario buscarUsuario(String correo) {
 		
 		IProcesosDB<Usuario> us= new UsuariosDao();

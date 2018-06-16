@@ -8,7 +8,7 @@
 	
 			<h2> Mis puntos </h2>
 			<br>
-			<h3>LLevas acomulados: ${sessionScope.puntos}</h3>
+			<h3>LLevas acomulados: ${jpro.puntos(sessionScope.correo)}</h3>
 </div>
 
 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -71,7 +71,7 @@
 			
 			<tr>
 			<td>
-			  <label class="control-label col-md-2" for="contraseña">Estabo: </label>
+			  <label class="control-label col-md-2" for="contraseña">Estado: </label>
 			</td>
 			<td>
 			<input type="text" name="password" id="password" class="form-control" value="${sessionScope.estado}" disabled>
