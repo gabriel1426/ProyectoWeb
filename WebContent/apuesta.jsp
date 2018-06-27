@@ -107,6 +107,13 @@
 							
 					</button> <!-- Modal -->
  					</c:when>
+ 					<c:when test="${item.estado.equals('En curso')}">
+    				<button style="margin: auto;" type="button" class="btn btn-info"
+							data-toggle="modal" data-target="#${item.idPartido}1" disabled>
+							<span class="fas fa-edit">Apostar</span>
+							
+					</button> <!-- Modal -->
+ 					</c:when>
  					<c:otherwise>
  					<button style="margin: auto;" type="button" class="btn btn-info"
 							data-toggle="modal" data-target="#${item.idPartido}1" >

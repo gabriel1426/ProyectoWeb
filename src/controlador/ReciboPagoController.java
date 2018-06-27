@@ -76,7 +76,7 @@ public class ReciboPagoController extends HttpServlet {
             /*item.isFormField() false=input file; true=text field*/
             if (! item.isFormField()){
                 /*cual sera la ruta al archivo en el servidor*/
-                File archivo_server = new File("../recibosDePago/"+item.getName());
+                File archivo_server = new File("C:\\Users\\Gabriel Contreras\\workspace\\ProyectoWeb\\WebContent\\recibosDePago\\"+item.getName());
                 String recibo="recibosDePago/"+item.getName();
                 p.guardarRecibo(recibo,usu);
                
